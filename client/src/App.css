@@ -3,7 +3,6 @@
   }
 
   .App-header {
-    background-image: url('./assets/NotebookCacti.png');
     min-height: 100vh;
     display: flex;
     flex-direction: column;
