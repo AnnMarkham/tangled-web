@@ -1,10 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import React from "react";
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
 import ApolloClient from 'apollo-boost';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+//import other components from  "./components/ComponentName";
 import Navbar from './components/Navbar';
+import Story from './components/Story';
+
+//import pages from './pages/pageName'
 
 const client = new ApolloClient({
   request: operation => {
@@ -23,11 +28,10 @@ function App() {
   return (
     <ApolloProvider client={client}>
     <Router>
-      <>
         <Navbar />
-        This Stuff Is Underneath the Navbar!
-      </>
+        <Story />
     </Router>
+
     </ApolloProvider>
   );
 }
