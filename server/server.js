@@ -8,13 +8,13 @@ const db = require("./config/connection");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-/*const server = new ApolloServer({
+const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
-});*/
+});
 
-//server.applyMiddleware({ app });
+server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -31,6 +31,6 @@ app.get("*", (req, res) => {
 db.once("open", () => {
   app.listen(PORT, () => {
     console.log(` API Server running on Port ${PORT}`);
-    //console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+    console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
   });
 });
