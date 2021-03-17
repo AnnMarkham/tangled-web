@@ -7,7 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 //import other components from  "./components/ComponentName";
 import Navbar from './components/Navbar';
-import Story from './components/Story';
+import HomePage from './components/HomePage';
+//import Story from './components/Story';
 
 //import pages from './pages/pageName'
 
@@ -29,7 +30,7 @@ function App() {
     <ApolloProvider client={client}>
     <Router>
         <Navbar />
-        <Story />
+        <HomePage />
     </Router>
 
     </ApolloProvider>
