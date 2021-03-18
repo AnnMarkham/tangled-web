@@ -1,14 +1,13 @@
-import React from "react";
-import { BrowserRouter as Router } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
 import ApolloClient from 'apollo-boost';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 //import other components from  "./components/ComponentName";
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
 import StoryForm from './components/StoryForm'
+import Stories from './pages/Stories'
 //import pages from './pages/pageName'
 
 const client = new ApolloClient({
@@ -27,12 +26,19 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-    <Router>
-        <Navbar />
-        <HomePage />
-        <StoryForm />
-    </Router>
+     <Router>
+        <div className="flex-column justify-flex-start min-100-vh">
+          <Navbar />
+          <HomePage />
+          <div className="container">
+            <Switch>
+              <Route exact path="/storyform" component={StoryForm} />
+              <Route exact path="/stories" pages={Stories} />
+            </Switch>
+          </div>
 
+        </div>
+      </Router>
     </ApolloProvider>
   );
 }

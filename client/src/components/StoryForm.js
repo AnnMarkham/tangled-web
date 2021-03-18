@@ -13,9 +13,11 @@ const StoryForm = () => {
     const [addStory] = useMutation(ADD_STORY, {
   
     // update story array's cache
-    // could potentially not exist yet, so wrap in a try/catch
+    
     update(cache, { data: { addStory } }) {
+      // could potentially not exist yet, so wrap in a try/catch
       try {
+        //read what is currently in the cache
 
         const { stories } = cache.readQuery({ query: QUERY_STORIES });
         cache.writeQuery({
@@ -28,6 +30,7 @@ const StoryForm = () => {
 
       // update me object's cache
       const { me } = cache.readQuery({ query: QUERY_ME });
+      //prepend the newest story to the front of the array
       cache.writeQuery({
         query: QUERY_ME,
         data: { me: { ...me, stories: [...me.stories, addStory] } }

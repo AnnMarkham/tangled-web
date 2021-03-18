@@ -9,7 +9,7 @@ import Auth from '../utils/auth';
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
-
+  
   return (
     <>
       <Navbar bg='dark' variant='dark' expand='lg'>
@@ -20,16 +20,21 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
-                {Auth.loggedIn() ? (
-                          
-            <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
-
+              {Auth.loggedIn() ? (
+                <>              
+                <Nav.Link as={Link} to='/storyform'>
+                   Create a New Story
+                  </Nav.Link>
+                  <Nav.Link as={Link} to='/stories'>
+                    See My Stories
+                  </Nav.Link>
+                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                </>
               ) : (
                 <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
-
         </Container>
       </Navbar>
 
