@@ -8,8 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import other components from  "./components/ComponentName";
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
-//import Story from './components/Story';
-
+import StoryForm from './components/StoryForm'
 //import pages from './pages/pageName'
 
 const client = new ApolloClient({
@@ -31,6 +30,7 @@ function App() {
     <Router>
         <Navbar />
         <HomePage />
+        <StoryForm />
     </Router>
 
     </ApolloProvider>

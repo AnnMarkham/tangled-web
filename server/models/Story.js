@@ -9,13 +9,9 @@ const storySchema = new Schema(
     },
     storyText: {
       type: String,
-      required: 'You need to leave a thought!',
-      minlength: 1,
-      maxlength: 280
     },
     username: {
       type: String,
-      required: true
     },
     //add setting, character etc.
   },

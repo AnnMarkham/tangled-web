@@ -6,7 +6,6 @@ const typeDefs = gql`
     username: String
     email: String
     stories: [Story]
-    friends: [User]
   }
 
   type Story {
